@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
-    min-height: 100dvh;
+    min-height: 100svh;
     transition: background-color 0.1s ease-out;
 }
 nav{
