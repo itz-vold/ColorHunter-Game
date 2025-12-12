@@ -32,4 +32,4 @@
 1. Clone or download the repository:
 
 ```bash
-git clone https://github.com/username/ColorHunter.git
+git clone https://github.com/itz-vold/ColorHunter-Game
