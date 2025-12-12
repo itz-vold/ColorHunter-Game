@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
-    min-height: 100vh;
+    min-height: 100dvh;
     transition: background-color 0.1s ease-out;
 }
 nav{
@@ -87,6 +87,11 @@ footer button:hover .icon{
 
 nav h2{
     font-size: 50px;
+    margin-bottom: 30px;
+}
+.container{
+    justify-content: start;
+    align-items: center;
 }
 
 }
