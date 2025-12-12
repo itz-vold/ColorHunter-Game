@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --btn-background: #b744bb;
+    --background-color: #c2c1ce;
+    --card-background: #9b9b9b;
+    --title-first-color: #c33764;
+    --title-second-color: #1D2671;
+}
+::selection{
+    background-color: #ff1900;
+    color: white;
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: poppins, sans-serif;
+}
+.container{
+    display: flex;
+    flex-flow: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    transition: background-color 0.1s ease-out;
+}
+nav{
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+nav h2{
+    background: linear-gradient(to right, var(--title-first-color), var(--title-second-color));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+}
+.card{
+    background-color: var(--card-background);
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.card .row{
+    display: flex;
+    flex-flow: row;
+    gap: 2px;
+}
+.row .item{
+    width: 70px;
+    height: 70px;
+    background-color: var(--card-background);
+    margin: 2px auto;
+    border-radius: 5px;
+}
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+footer button{
+    padding: 8px;
+    background: var(--btn-background);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 10%;
+    cursor: pointer;
+}
+.icon{
+    transition: transform 0.2s ease-in;
+    height: 30px;
+    width: 30px;
+}
+footer button:hover .icon{
+    transform: scale(1.1);
+}
+@media (max-width:768px){
+
+nav h2{
+    font-size: 50px;
+}
+
+}
