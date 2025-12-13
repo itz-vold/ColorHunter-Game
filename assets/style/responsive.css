@@ -1,8 +1,10 @@
 @media (max-width:768px){
 
 .container{
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
-
+.score-bar{
+    margin-top: 20px;
+}
 }
