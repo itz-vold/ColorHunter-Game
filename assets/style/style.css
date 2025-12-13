@@ -1,15 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
-    --btn-background: #b744bb;
-    --background-color: #c2c1ce;
+    --selection-background: #ff1900;
+    --selection-text-color: #fff;
+    --start-btn-background: #DF0139;
+    --background-color: #d1d1d1;
     --card-background: #9b9b9b;
     --title-first-color: #c33764;
     --title-second-color: #1D2671;
+    --setting-background-color: #ABAFB5;
+    --setting-text-color: #000000;
+    --navbar-background-color: #E2E2E2;
+    --setting-item-border-hover-color: #ff1900;
+    --setting-item-border-color: #000000;
+    --setting-icon-rotation: 90deg;
+
+    --dark-background-color: #2e2f3b;
+    --dark-start-btn-color: #A73728;
+    --dark-card-background: #E9D9E4;
+    --dark-navbar-background-color: #9b9b9b;
+    --dark-score-bar-color: #fff;
+
+
 }
 ::selection{
-    background-color: #ff1900;
-    color: white;
+    background-color: var(--selection-background);
+    color: var(--selection-text-color);
 }
 *{
     padding: 0;
@@ -20,20 +36,20 @@
     display: flex;
     flex-flow: column;
     gap: 30px;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: var(--background-color);
     height: 100vh;
     transition: background-color 0.1s ease-out;
 }
-nav{
+.score-bar{
     display: flex;
     flex-flow: column;
     gap: 10px;
     justify-content: center;
     align-items: center;
 }
-nav h2{
+.header .left h2{
     background: linear-gradient(to right, var(--title-first-color), var(--title-second-color));
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -67,8 +83,7 @@ footer{
 }
 footer button{
     padding: 8px;
-    background: var(--btn-background);
-    color: white;
+    background: var(--start-btn-background);
     border: none;
     border-radius: 8px;
     height: 50px;
@@ -83,15 +98,65 @@ footer button{
 footer button:hover .icon{
     transform: scale(1.1);
 }
-@media (max-width:768px){
-
-nav h2{
-    font-size: 50px;
-    margin-top: 40px;
-}
-.container{
-    justify-content: start;
+.header{
+    display: flex;
+    flex-flow: row;
+    background-color: var(--navbar-background-color);
+    justify-content: space-between;
     align-items: center;
+    width: 100%; 
+    padding: 6px;
 }
+.header section{
+    margin: 0 30px;
+}
+.setting-icon{
+    transition: transform 0.3s ease-out;
+    cursor: pointer;
+}
+.header .right{
+    position: relative;
+}
+.setting{
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: var(--setting-background-color);
+    color: var(--setting-text-color);
+    right: 5px;
+    width: 200px;
+    transition: max-height 0.2s linear;
+    padding: 0 5px;
+    display: flex;
+    flex-flow: column;
+    border-radius: 5px 0px 5px 5px;
+    gap: 6px;
+}
+.setting.open{
+    max-height: 100px;
+    padding: 5px;
 
+}
+.setting-icon.clicked{
+    transform: rotate(var(--setting-icon-rotation));
+}
+.setting-item{
+    border-left: 2px solid var(--setting-item-border-color);
+    padding-left: 4px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.setting-item:hover{
+    border-color: var(--setting-item-border-hover-color);
+}
+.setting-list-icon{
+    width: 20px;
+    height: 20px;
+}
+.setting-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

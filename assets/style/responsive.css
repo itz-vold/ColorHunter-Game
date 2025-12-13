@@ -1,0 +1,8 @@
+@media (max-width:768px){
+
+.container{
+    justify-content: start;
+    align-items: center;
+}
+
+}
