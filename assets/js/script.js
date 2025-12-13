@@ -131,9 +131,9 @@ function handleThemeChange(){
 function handleSettingItem(){
     settingItemElement.forEach(item => {
         if(setting[item.id] != undefined){
-            item.style.borderRight = "3px solid green";
+            item.style.color = "green";
         }else{
-            item.style.borderRight = "none";
+            item.style.color = "black";
         }
     })
 }
