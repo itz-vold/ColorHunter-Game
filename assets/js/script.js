@@ -10,6 +10,8 @@ const darkModeElement = document.querySelector(".dark-mode");
 const header = document.querySelector(".header");
 const root = document.documentElement;
 const icons = document.querySelectorAll(".icon, .setting-icon");
+const title = document.querySelector(".title");
+const settingItemElement = document.querySelectorAll(".setting-item");
 let score = 0;
 let started = false;
 let setting = {
@@ -20,6 +22,7 @@ let setting = {
 settingIcon.addEventListener('click', e => {
     settingElement.classList.toggle('open');
     settingIcon.classList.toggle('clicked')
+    handleSettingItem();
 });
 
 darkModeElement.addEventListener('click', e => {
@@ -89,23 +92,7 @@ function handleThemeChange(){
         card.style.backgroundColor = getComputedStyle(root).getPropertyValue('--dark-card-background');
         header.style.backgroundColor = getComputedStyle(root).getPropertyValue('--dark-navbar-background-color');
         scoreElement.style.color = getComputedStyle(root).getPropertyValue('--dark-score-bar-color');
-        icons.forEach(icon => {
-            icon.style.filter = 'invert()';
-            
-        });
-        
-        if(!setting['isStarted']){
-        boxes.forEach(box =>  {
-            box.style.backgroundColor = card.style.backgroundColor;
-        });
-        }
-        
-    }else{
-        container.style.backgroundColor = getComputedStyle(root).getPropertyValue('--background-color');
-        startBtn.style.backgroundColor = getComputedStyle(root).getPropertyValue('--start-btn-color');
-        card.style.backgroundColor = getComputedStyle(root).getPropertyValue('--card-background');
-        header.style.backgroundColor = getComputedStyle(root).getPropertyValue('--navbar-background-color');
-        scoreElement.style.color = getComputedStyle(root).getPropertyValue('--score-bar-color');
+        title.style.background = "linear-gradient(to right, var(--dark-title-first-color), var(--dark-title-second-color))";
         icons.forEach(icon => {
             icon.style.filter = 'invert()';
             
@@ -116,5 +103,37 @@ function handleThemeChange(){
             box.style.backgroundColor = card.style.backgroundColor;
         });
         }
+        darkModeElement.setAttribute("id", "darkMode");
+        handleSettingItem();
+        
+    }else{
+        container.style.backgroundColor = getComputedStyle(root).getPropertyValue('--background-color');
+        startBtn.style.backgroundColor = getComputedStyle(root).getPropertyValue('--start-btn-color');
+        card.style.backgroundColor = getComputedStyle(root).getPropertyValue('--card-background');
+        header.style.backgroundColor = getComputedStyle(root).getPropertyValue('--navbar-background-color');
+        scoreElement.style.color = getComputedStyle(root).getPropertyValue('--score-bar-color');
+        title.style.background = "linear-gradient(to right, var(--title-first-color), var(--title-second-color))";
+        icons.forEach(icon => {
+            icon.style.filter = 'invert()';
+            
+        });
+
+        if(!setting['isStarted']){
+        boxes.forEach(box =>  {
+            box.style.backgroundColor = card.style.backgroundColor;
+        });
+        }
+        darkModeElement.removeAttribute('id');
+        handleSettingItem();
     }
+}
+
+function handleSettingItem(){
+    settingItemElement.forEach(item => {
+        if(setting[item.id] != undefined){
+            item.style.borderRight = "3px solid green";
+        }else{
+            item.style.borderRight = "none";
+        }
+    })
 }
